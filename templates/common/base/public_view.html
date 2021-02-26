@@ -12,6 +12,7 @@
     </head>
     <body>
         {% include 'common/menus/public_menu.html' %}
+        {% include 'common/alerts.html' %}
         {% block content %}Content Here{% endblock %}
     </body>
     <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>

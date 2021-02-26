@@ -1,0 +1,30 @@
+{% if messages %}
+<div class="container-fluid mb-2 mt-2">
+    <div class="row">
+        <div class="col">
+              <div class="messages-content">
+                  {% for message in messages %}
+                    <div class="{{ message.tags }} alert alert-dismissible fade show">
+                        <button class="close" type="button" data-dismiss="alert" aria-label="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        {% if message.level == 10 or message.level == 20 %}
+                            <i class="bi bi-info-circle-fill"></i>
+                        {% endif %}
+                        {% if message.level == 25 %}
+                            <i class="bi bi-check-circle-fill"></i>
+                        {% endif %}
+                        {% if message.level == 30 %}
+                            <i class="bi bi-exclamation-triangle-fill"></i>
+                        {% endif %}
+                        {% if message.level == 40 %}
+                            <i class="bi bi-exclamation-circle-fill"></i>
+                        {% endif %}
+                        {{ message }}
+                    </div>
+                  {% endfor %}
+              </div>
+        </div>
+    </div>
+</div>
+{% endif %}
