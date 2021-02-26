@@ -29,5 +29,13 @@ class LogInView(AuthLoginView):
     template_name = 'pages/login.html'
 
     def get_success_url(self):
-        messages.success(self.request, "Has iniciado sesión.")
+        messages.success(self.request, "Welcome again to Django TodoList.")
         return super(LogInView, self).get_success_url()
+
+
+class LogoutView(AuthLogoutView):
+    next_page = reverse_lazy('pages:login')
+
+    def dispatch(self, request, *args, **kwargs):
+        messages.success(self.request, "Your session has been closed.")
+        return super(LogoutView, self).dispatch(request, *args, **kwargs)

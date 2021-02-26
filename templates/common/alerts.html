@@ -6,7 +6,7 @@
                   {% for message in messages %}
                     <div class="{{ message.tags }} alert alert-dismissible fade show">
                         <button class="close" type="button" data-dismiss="alert" aria-label="Close">
-                            <i class="fas fa-times"></i>
+                            <i class="bi bi-x"></i>
                         </button>
                         {% if message.level == 10 or message.level == 20 %}
                             <i class="bi bi-info-circle-fill"></i>

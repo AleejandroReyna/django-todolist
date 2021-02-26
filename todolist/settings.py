@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
+from django.urls import reverse_lazy
 from pathlib import Path
 import os
 
@@ -136,5 +137,5 @@ MESSAGE_TAGS = {
     40: 'alert-danger'
 }
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = reverse_lazy('pages:dashboard')
 LOGOUT_REDIRECT_URL = '/'
