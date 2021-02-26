@@ -8,8 +8,10 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>{% block title %}Django TodoList{% endblock %}</title>
         <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'icons/font/bootstrap-icons.css'%}">
     </head>
     <body>
+        {% include 'common/menus/public_menu.html' %}
         {% block content %}Content Here{% endblock %}
     </body>
     <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
