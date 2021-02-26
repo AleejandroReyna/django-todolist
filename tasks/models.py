@@ -3,7 +3,7 @@ from django.db import models
 import uuid
 
 
-STATUS_CHOICES = (('todo', 'To Do'), ('doing', 'Doing'), ('inreview', 'In Review'), ('finished', 'Finished'))
+STATUS_CHOICES = (('todo', 'To Do'), ('doing', 'Doing'), ('inreview', 'In Review'), ('done', 'Done'))
 
 
 class Task(models.Model):
@@ -12,6 +12,8 @@ class Task(models.Model):
     content = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='todo')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name

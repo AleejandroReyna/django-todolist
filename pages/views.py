@@ -15,6 +15,11 @@ class DashboardView(LoginRequiredMixin, TemplateView):
     template_name = 'pages/dashboard.html'
     login_url = reverse_lazy('pages:login')
 
+    def get_context_data(self, **kwargs):
+        c = super(DashboardView, self).get_context_data(**kwargs)
+        c['todo_tasks'] = self.request.user.task_set.filter(status='todo')
+        print(c)
+        return c
 
 class SignUpView(CreateView):
     model = User

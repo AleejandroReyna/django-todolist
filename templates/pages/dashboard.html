@@ -3,5 +3,34 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block content %}
- <h1>Dashboard</h1>
+<div class="container-fluid">
+ <div class="row">
+  <div class="col">
+   <div class="d-flex align-items-center justify-content-between mb-4 mt-4">
+     <h3>Dashboard</h3>
+     <a href="{% url 'tasks:create' %}" class="btn btn-primary">Create Task</a>
+   </div>
+  </div>
+ </div>
+</div>
+
+<div class="container-fluid">
+ <div class="row">
+  <div class="col">
+    <h5>To Do</h5>
+      {% for task in todo_tasks %}
+        {% include 'tasks/task_panel.html' with task=task %}
+      {% endfor %}
+  </div>
+  <div class="col">
+    <h5>Doing</h5>
+  </div>
+  <div class="col">
+   <h5>In Review</h5>
+  </div>
+  <div class="col">
+    <h5>Done</h5>
+  </div>
+ </div>
+</div>
 {% endblock %}

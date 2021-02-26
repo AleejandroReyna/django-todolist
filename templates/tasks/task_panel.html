@@ -1,0 +1,21 @@
+<article class="card">
+    <section class="card-header d-flex align-items-center justify-content-between">
+        <h6>{{ task.name }}</h6>
+        <div>
+            <a href="#" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a>
+        </div>
+    </section>
+    <section class="card-body">
+        <p>{{task.content}}</p>
+    </section>
+    <section class="card-footer text-center">
+        <div class="btn-group">
+            {% if not task.status == 'todo' %}
+                <a href="" class="btn btn-outline-secondary"><i class="bi bi-chevron-left"></i></a>
+            {% endif %}
+            {% if not task.status == 'done' %}
+                <a href="" class="btn btn-outline-secondary"><i class="bi bi-chevron-right"></i></a>
+            {% endif %}
+        </div>
+    </section>
+</article>
