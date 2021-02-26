@@ -1,0 +1,24 @@
+{% extends 'common/base/public_view.html' %}
+
+{% block title %}Sign Up {% endblock %}
+
+{% block content %}
+
+<section class="content mt-4 mb-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col col-xs-12 col-sm-10 col-md-8 col-lg-6">
+                <div class="card text-center">
+                    <div class="card-header">
+                        Login
+                    </div>
+                    <div class="card-body">
+                        {{ form.as_p }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
