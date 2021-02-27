@@ -24,12 +24,21 @@
   </div>
   <div class="col">
     <h5>Doing</h5>
+      {% for task in doing_tasks %}
+        {% include 'tasks/task_panel.html' with task=task %}
+      {% endfor %}
   </div>
   <div class="col">
    <h5>In Review</h5>
+      {% for task in inreview_tasks %}
+        {% include 'tasks/task_panel.html' with task=task %}
+      {% endfor %}
   </div>
   <div class="col">
     <h5>Done</h5>
+      {% for task in done_tasks %}
+        {% include 'tasks/task_panel.html' with task=task %}
+      {% endfor %}
   </div>
  </div>
 </div>

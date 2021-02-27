@@ -18,6 +18,9 @@ class DashboardView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         c = super(DashboardView, self).get_context_data(**kwargs)
         c['todo_tasks'] = self.request.user.task_set.filter(status='todo')
+        c['doing_tasks'] = self.request.user.task_set.filter(status='doing')
+        c['inreview_tasks'] = self.request.user.task_set.filter(status='inreview')
+        c['done_tasks'] = self.request.user.task_set.filter(status='done')
         print(c)
         return c
 
