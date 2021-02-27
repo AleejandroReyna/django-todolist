@@ -70,4 +70,11 @@ class GoBackTaskView(LoginRequiredMixin, RedirectView):
 
 
 class GoNextTaskView(LoginRequiredMixin, RedirectView):
-    pass
+    permanent = False
+    query_string = True
+
+    def get_redirect_url(self, *args, **kwargs):
+        task = get_object_or_404(self.request.user.task_set.all(), id=kwargs['task_id'])
+        task.level_up()
+        messages.success(self.request, "The task has been updated.")
+        return reverse_lazy('pages:dashboard')

@@ -15,7 +15,8 @@
                    class="btn btn-outline-secondary"><i class="bi bi-chevron-left"></i></a>
             {% endif %}
             {% if not task.status == 'done' %}
-                <a href="" class="btn btn-outline-secondary"><i class="bi bi-chevron-right"></i></a>
+                <a href="{% url 'tasks:task_go_next' task_id=task.id %}"
+                   class="btn btn-outline-secondary"><i class="bi bi-chevron-right"></i></a>
             {% endif %}
         </div>
     </section>
