@@ -45,3 +45,13 @@ class UpdateTaskView(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         messages.success(self.request, "The task has been updated.")
         return reverse_lazy('pages:dashboard')
+
+
+class DeleteTaskView(LoginRequiredMixin, DeleteView):
+    model = models.Task
+    login_url = reverse_lazy('pages:login')
+    pk_url_kwarg = 'task_id'
+
+    def get_success_url(self):
+        messages.success(self.request, "The task has been deleted.")
+        return reverse_lazy('pages:dashboard')

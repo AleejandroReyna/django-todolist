@@ -16,7 +16,7 @@
                     <strong>Status: </strong> <span>{{ object.status }}</span><br>
                     <strong>Actions: </strong>
                     <a href="{% url 'tasks:task_update' task_id=object.pk %}" class="btn btn-success">Edit</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
+                    <a href="{% url 'tasks:task_delete' task_id=object.pk %}" class="btn btn-danger">Delete</a>
                 </section>
             </article>
         </div>
