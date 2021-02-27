@@ -21,8 +21,8 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         c['doing_tasks'] = self.request.user.task_set.filter(status='doing')
         c['inreview_tasks'] = self.request.user.task_set.filter(status='inreview')
         c['done_tasks'] = self.request.user.task_set.filter(status='done')
-        print(c)
         return c
+
 
 class SignUpView(CreateView):
     model = User

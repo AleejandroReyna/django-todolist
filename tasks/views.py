@@ -1,11 +1,13 @@
 from django.views.generic import DetailView, CreateView, UpdateView, RedirectView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils.decorators import method_decorator
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
+from tasks import models, decorators
 from django.contrib import messages
-from tasks import models
 
 
+@method_decorator(decorators.check_owner, name='dispatch')
 class DetailTaskView(LoginRequiredMixin, DetailView):
     model = models.Task
     login_url = reverse_lazy('pages:login')
@@ -32,6 +34,7 @@ class CreateTaskView(LoginRequiredMixin, CreateView):
         return reverse_lazy('pages:dashboard')
 
 
+@method_decorator(decorators.check_owner, name='dispatch')
 class UpdateTaskView(LoginRequiredMixin, UpdateView):
     model = models.Task
     fields = ('name', 'content', 'status')
@@ -48,6 +51,7 @@ class UpdateTaskView(LoginRequiredMixin, UpdateView):
         return reverse_lazy('pages:dashboard')
 
 
+@method_decorator(decorators.check_owner, name='dispatch')
 class DeleteTaskView(LoginRequiredMixin, DeleteView):
     model = models.Task
     login_url = reverse_lazy('pages:login')

@@ -1,0 +1,21 @@
+{% extends 'common/base/public_view.html' %}
+
+{% block title %} Unauthorized {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="mt-5">Unauthorized</h1>
+            {% if request.user.is_authenticated %}
+                <p>You can go back to view your tasks.</p>
+                <a class="btn btn-primary" href="{% url 'pages:dashboard' %}">Go to Dashboard</a>
+            {% else %}
+                <p>You can go back to homepage.</p>
+                <a class="btn btn-primary" href="{% url 'pages:home' %}">Go to Home</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
