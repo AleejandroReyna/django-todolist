@@ -2,7 +2,7 @@
     <section class="card-header d-flex align-items-center justify-content-between">
         <h6>{{ task.name }}</h6>
         <div>
-            <a href="#" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a>
+            <a href="{% url 'tasks:task_detail' task_id=task.pk %}" class="btn btn-primary"><i class="bi bi-eye-fill"></i></a>
         </div>
     </section>
     <section class="card-body">

@@ -17,3 +17,19 @@ class Task(models.Model):
 
     def __str__(self):
         return self.name
+
+    def level_down(self):
+        status_list = [x[0] for x in STATUS_CHOICES]
+        index = status_list.index("%s" % self.status)
+        if index > 0:
+            self.status = status_list[index - 1]
+            self.save()
+        return None
+
+    def level_up(self):
+        status_list = [x[0] for x in STATUS_CHOICES]
+        index = status_list.index("%s" % self.status)
+        if index < len(status_list) - 1:
+            self.status = status_list[index + 1]
+            self.save()
+        return None

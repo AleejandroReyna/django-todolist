@@ -1,0 +1,26 @@
+{% extends 'common/base/public_view.html' %}
+
+{% block title %}View Task{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3 class="mt-4">Task: {{ object.name }}</h3>
+            <article class="card mt-4">
+                <section class="card-header"><h6>Info</h6></section>
+                <section class="card-body">
+                    <strong>ID: </strong> <span>{{ object.pk }}</span><br>
+                    <strong>Content: </strong> <span>{{ object.content }}</span><br>
+                    <strong>Status: </strong> <span>{{ object.status }}</span><br>
+                    <strong>Actions: </strong>
+                    <a href="#" class="btn btn-success">Edit</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </section>
+            </article>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

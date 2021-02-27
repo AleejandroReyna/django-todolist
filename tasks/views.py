@@ -5,10 +5,18 @@ from django.contrib import messages
 from tasks import models
 
 
+class DetailTaskView(LoginRequiredMixin, DetailView):
+    model = models.Task
+    login_url = reverse_lazy('pages:login')
+    redirect_field_name = 'next'
+    pk_url_kwarg = 'task_id'
+
+
 class CreateTaskView(LoginRequiredMixin, CreateView):
     model = models.Task
     fields = ('name', 'content', 'status')
     login_url = reverse_lazy('pages:login')
+    redirect_field_name = 'next'
 
     def get_context_data(self, **kwargs):
         c = super(CreateTaskView, self).get_context_data(**kwargs)
