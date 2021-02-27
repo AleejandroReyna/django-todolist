@@ -4,6 +4,3 @@
 [submodule "assets/icons"]
 	path = assets/icons
 	url = https://github.com/twbs/icons
-[submodule "assets/jquery"]
-	path = assets/jquery
-	url = https://github.com/jquery/jquery
