@@ -16,7 +16,6 @@ class CreateTaskView(LoginRequiredMixin, CreateView):
     model = models.Task
     fields = ('name', 'content', 'status')
     login_url = reverse_lazy('pages:login')
-    redirect_field_name = 'next'
 
     def get_context_data(self, **kwargs):
         c = super(CreateTaskView, self).get_context_data(**kwargs)
@@ -29,4 +28,20 @@ class CreateTaskView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         messages.success(self.request, "The task has been added.")
+        return reverse_lazy('pages:dashboard')
+
+
+class UpdateTaskView(LoginRequiredMixin, UpdateView):
+    model = models.Task
+    fields = ('name', 'content', 'status')
+    login_url = reverse_lazy('pages:login')
+    pk_url_kwarg = 'task_id'
+
+    def get_context_data(self, **kwargs):
+        c = super(UpdateTaskView, self).get_context_data(**kwargs)
+        c['action'] = 'Edit'
+        return c
+
+    def get_success_url(self):
+        messages.success(self.request, "The task has been updated.")
         return reverse_lazy('pages:dashboard')
