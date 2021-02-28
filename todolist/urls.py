@@ -23,5 +23,6 @@ urlpatterns = [
     path('', include('pages.urls', namespace='pages')),
     path('api/', include(routers.router.urls)),
     path('admin/', admin.site.urls),
+    path('auth/', include('auth.urls', namespace='auth')),
     path('tasks/', include('tasks.urls', namespace='tasks'))
 ]

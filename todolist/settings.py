@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'tasks.apps.TasksConfig',
     'widget_tweaks',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -59,7 +61,10 @@ REST_FRAMEWORK = {
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
 
 ROOT_URLCONF = 'todolist.urls'
@@ -149,3 +154,5 @@ MESSAGE_TAGS = {
 
 LOGIN_REDIRECT_URL = reverse_lazy('pages:dashboard')
 LOGOUT_REDIRECT_URL = '/'
+
+CORS_ALLOW_ALL_ORIGINS=True
