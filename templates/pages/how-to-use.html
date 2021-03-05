@@ -1,0 +1,72 @@
+{% extends 'common/base/public_view.html' %}
+
+{% block title %}How To Use{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <h3 class="mt-4">How to use</h3>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <p>Django Todolist was created with <a href="#">Django</a> and <a href="#">Django Rest Framework</a>.
+            It's a completed base for a todolist platform with API REST for develop apps and frontend app with your
+            favorite technologies.</p>
+            <p>I use SQLite by default, because my intention is not to cause problems in your development, if you
+                wanna learn Angular, React or Vue, you have everything to need for create a basic web or mobile app.</p>
+            <p>Authentication, basic crud, and basic change field state here.</p>
+            <p>If do you wanna try to learn django, this is a perfect way to learn all to do you need, ClassView, Login,
+            Register and Logout, Rest Api, correct way to set html templates and assets, and external template framework
+            for views.</p>
+            <p>I add a json collection for postman with all services, with this you do know how to use all services in
+                REST API but, if you don't have a postman and you don't wanna install it, I'll try to describe this
+                services here:</p>
+
+            <code>*domain*/auth/register/</code>
+            <p>Allow to create users. The params are username and password, the method is post.</p>
+
+            <code>*domain*/auth/login/</code>
+            <p>This service return an object with two properties, refresh and access. The access token must be send how
+                an header authorization of type Bearer Token in all requests. The access token is alive by 5 minutes.
+            If do you wanna make a request and the token is invalid, do you need to refresh the token.</p>
+
+            <code>*domain*/auth/refresh/</code>
+            <p>This service return an object with new access token if the old access token is invalid. The service needs
+            the refresh token.</p>
+
+            <code>*domain*/tasks/</code>
+            <p>Return an array with all tasks for the user. The service needs the access token sent how Bearer Token.</p>
+            <p>In POST method, the request create a task with data included in the body form or Json Body</p>
+
+            <code>*domain*/tasks/*id*/</code>
+            <p>Return an object with the task info. The service needs the access token sent how Bearer Token.
+                <ul>
+                    <li>In GET method, the request return task data.</li>
+                    <li>In PUT method, the request modify the task data with the include body form or Json Body.</li>
+                    <li>In DELETE method, the request delete the task.</li>
+                </ul>
+            </p>
+
+            <code>Task Model Description</code>
+            <p>
+                <ul>
+                    <li><strong>ID: </strong> The ID for task, generate with uuid.</li>
+                    <li><strong>Name: </strong>Name for task.</li>
+                    <li><strong>Content: </strong>The content for task.</li>
+                    <li><strong>User: </strong>Owner for this task, added in request in Django Views, and the token in
+                    API REST.</li>
+                    <li><strong>Status: </strong>Possible Status: todo, doing, inreview and done.</li>
+               </ul>
+            </p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

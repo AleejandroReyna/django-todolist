@@ -24,6 +24,10 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         return c
 
 
+class HowToUseView(TemplateView):
+    template_name = 'pages/how-to-use.html'
+
+
 class SignUpView(CreateView):
     model = User
     form_class = UserCreationForm
