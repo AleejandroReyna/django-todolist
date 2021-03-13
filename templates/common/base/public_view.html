@@ -9,12 +9,13 @@
         <title>{% block title %}Django TodoList{% endblock %}</title>
         <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'icons/font/bootstrap-icons.css'%}">
+        <link rel="stylesheet" href="{% static 'stylesheets/style.css'%}">
     </head>
     <body>
         {% include 'common/menus/public_menu.html' %}
         {% include 'common/alerts.html' %}
         {% block content %}Content Here{% endblock %}
-        <footer class="mt-5 bg-light">
+        <footer class="bg-light main-footer">
             <div class="container">
                 <div class="row">
                     <div class="col text-center mt-3">
