@@ -3,3 +3,4 @@ venv/
 *.sqlite*
 __pycache__/
 mysql/
+.env
