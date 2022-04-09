@@ -28,16 +28,19 @@ services:
     build:
       context: .
     container_name: django_todolist_app
-    command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/app
     ports:
       - 8000:8000
     depends_on:
       - mysql
+    environment:
+      - MYSQL_NAME=django-todolist
+      - MYSQL_USER=django-user
+      - MYSQL_PASSWORD=django-password
+      - MYSQL_HOST=django_todolist_mysql
     networks:
       - djangotodolistnetwork
-    tty: true
 
 networks:
   djangotodolistnetwork:
