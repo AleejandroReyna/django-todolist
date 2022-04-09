@@ -10,12 +10,34 @@ services:
       MYSQL_PASSWORD: django-password
       MYSQL_USER: django-user
       MYSQL_DATABASE: django-todolist
-    volumes:
-      - ./mysql:/var/lib/mysql
     ports:
       - 3306:3306
+    networks:
+      - djangotodolistnetwork
+
   adminer:
     image: adminer
+    container_name: django_todolist_adminer
     restart: always
     ports:
       - 8080:8080
+    networks:
+      - djangotodolistnetwork
+
+  app:
+    build:
+      context: .
+    container_name: django_todolist_app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - mysql
+    networks:
+      - djangotodolistnetwork
+    tty: true
+
+networks:
+  djangotodolistnetwork:
