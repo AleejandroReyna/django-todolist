@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'rest_framework',
     'corsheaders',
+    "djversion",
 ]
 
 MIDDLEWARE = [
@@ -80,6 +81,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'djversion.context_processors.version',
             ],
         },
     },
@@ -143,6 +145,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_URL = '/files/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "files")
+DJVERSION_VERSION = "v0.0.0"
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "assets")
