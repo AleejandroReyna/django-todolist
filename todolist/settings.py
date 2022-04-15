@@ -145,7 +145,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_URL = '/files/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "files")
-DJVERSION_VERSION = "v0.0.0"
+DJVERSION_VERSION = "v0.0.1"
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "assets")
