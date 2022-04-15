@@ -1,0 +1,45 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:8.0.28-debian
+    container_name: "${MYSQL_HOST}"
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+    ports:
+      - 3306:3306
+    networks:
+      - djangotodolistnetwork
+
+  adminer:
+    image: adminer
+    container_name: django_todolist_adminer
+    ports:
+      - 8080:8080
+    networks:
+      - djangotodolistnetwork
+
+  app:
+    build:
+      context: .
+    container_name: django_todolist_app
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_NAME: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_HOST: "${MYSQL_HOST}"
+      MYSQL_PORT: 3306
+    networks:
+      - djangotodolistnetwork
+
+networks:
+  djangotodolistnetwork:

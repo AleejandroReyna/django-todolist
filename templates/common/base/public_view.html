@@ -1,4 +1,6 @@
+{% load djversion_tags %}
 {% load static %}
+{% project_version as VERSION %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -17,10 +19,14 @@
         {% block content %}Content Here{% endblock %}
         <footer class="bg-light main-footer">
             <div class="container">
-                <div class="row">
-                    <div class="col text-center mt-3">
+                <div class="row mt-3">
+                    <div class="col-8 offset-2 text-center">
                         <p>Made with <i class="bi bi-heart-fill"></i> by
-                            <a href="https://github.com/AleejandroReyna" target="_blank">Alejandro Reyna</a></p>
+                            <a href="https://github.com/AleejandroReyna" target="_blank">Alejandro Reyna</a>
+                        </p>
+                    </div>
+                    <div class="col text-right">
+                        <span>{{VERSION}}</span>
                     </div>
                 </div>
             </div>
