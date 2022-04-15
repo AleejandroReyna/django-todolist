@@ -20,28 +20,56 @@
     </div>
     <div class="row">
         <div class="col">
+
             <h4>Step 01:</h4>
-            <p class="mb-4">Install <a href="https://www.python.org/downloads/" target="_blank">Python</a> and
-                <a href="https://virtualenv.pypa.io/en/latest/" target="_blank">VirtualEnv</a> for run this project.</p>
+            <p class="mb-4">Clone the repo <a href="https://github.com/AleejandroReyna/django-todolist">here</a>.</p>
             
             <h4>Step 02:</h4>
-            <p class="mb-4">Clone the repo <a href="https://github.com/AleejandroReyna/django-todolist" target="_blank">here</a>.</p>
-
+            <p class="mb-4">Clone the submodules. <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Guide here</a></p>
+            
             <h4>Step 03:</h4>
-            <p class="mb-4">Clone the submodules. <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules" target="_blank">Guide here</a></p>
-
-            <h4>Step 04:</h4>
-            <p class="mb-4">Install the dependencies in <code>requirements.txt</code></p>
-
-            <h4>Step 05:</h4>
-            <p class="mb-4">Run the command: <code>python manage.py migrate</code></p>
-
-            <h4>Step 06:</h4>
-            <p class="mb-4">Give me a <i class="bi bi-star-fill"></i> on
+            <p class="mb-5">Give me a <i class="bi bi-star-fill"></i> on
                 <a href="https://github.com/AleejandroReyna/django-todolist" target="_blank">Github <i class="bi bi-github"></i></a>.</p>
-
+            
+            <h3>With Docker Compose (Recommended method)</h3>
+            <hr class="my-4">
+            
+            <h4>Step 04:</h4>
+            <p class="mb-4">Install <a href="https://docs.docker.com/engine/install/">Docker</a></p>
+            
+            <h4>Step 05:</h4>
+            <p class="mb-4">Copy <code>.env.example</code> and rename to <code>.env</code></p>
+            
+            <h4>Step 06:</h4>
+            <p class="mb-4">Set values for .env file (Instructions in file)</p>
+            
+            <h4 id="final-step-">Final Step:</h4>
+            <p class="mb-5">Run <code>docker-compose up</code> and that's all!</p>
+            
+            <h3>Manual Installation</h3>
+            <hr class="my-4">
+            
+            <h4>Step 04:</h4>
+            <p class="mb-4">Install <a href="https://www.python.org/downloads/">Python</a> and <a href="https://virtualenv.pypa.io/en/latest/">VirtualEnv</a> for run this project.</p>
+            
+            <h4>Step 05:</h4>
+            <p class="mb-4">Generate virtualenv for project using <code>python3 -venv ./venv</code></p>
+            
+            <h4>Step 06:</h4>
+            <p class="mb-4">Activate virtualenv for project. (<code>source venv/bin/activate</code> on linux or macOS, <code>.\venv\Scripts\activate</code> on Windows.)</p>
+            
             <h4>Step 07:</h4>
-            <p class="mb-4">That's it all! Run the command <code>python manage.py runserver</code></p>
+            <p class="mb-4">Install the dependencies in <code>requirements.txt</code></p>
+            
+            <h4>Step 08:</h4>
+            <p class="mb-4">Define environment variables described in .env.example in your environment. (You can use <code>export MY_VARIABLE=my_value</code> on linux and macOS, <code>set MY_VARIABLE=my_value</code> with CMD and <code>$env:MY_VARIABLE=my_value</code> with Powershell).</p>
+            
+            <h4>Step 09:</h4>
+            <p class="mb-4">Run the command: <code>python manage.py migrate</code></p>
+            
+            <h4>Final Step:</h4>
+            <p class="mb-5">That&#39;s all! Run the command <code>python manage.py runserver</code></p>
+
         </div>
     </div>
 </div>
